@@ -40,47 +40,61 @@ jobs:
         run: flutter pub get
 
       # In-app purchases have been removed from this build, so there is no
-      # RevenueCat / purchase gate to configure. The signing key below is kept
-      # in this fork's Actions secrets (ANDROID_KEYSTORE_BASE64,
-      # ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD).
-      - name: Restore Android signing key
+      # RevenueCat / purchase gate to configure. The APK is signed with the
+      # auto-generated debug key kept in this fork's Actions secrets
+      # (ANDROID_DEBUG_KEYSTORE_BASE64, ANDROID_DEBUG_KEYSTORE_PASSWORD).
+      # If the secrets are missing, a fresh debug keystore is generated and
+      # written back so every build keeps the same signature.
+      - name: Restore or create debug signing key
         shell: bash
         env:
-          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_DEBUG_KEYSTORE_BASE64: ${{ secrets.ANDROID_DEBUG_KEYSTORE_BASE64 }}
+          ANDROID_DEBUG_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_DEBUG_KEYSTORE_PASSWORD }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
           set -eu
 
-          if [ -z "$ANDROID_KEYSTORE_BASE64" ]; then
-            echo "ANDROID_KEYSTORE_BASE64 not set; building an unsigned debug-key APK."
-            echo "SIGNED=false" >> "$GITHUB_ENV"
-            exit 0
-          fi
-
-          test -n "$ANDROID_KEYSTORE_PASSWORD"
-          test -n "$ANDROID_KEY_ALIAS"
-          test -n "$ANDROID_KEY_PASSWORD"
-
           mkdir -p android/keystore
 
-          printf '%s' "$ANDROID_KEYSTORE_BASE64" \
-            | base64 --decode \
-            > android/keystore/mono-dash-release.jks
+          KEYSTORE=android/keystore/mono-dash-debug.jks
+          KEY_PROPERTIES=android/key.properties
+
+          if [ -n "$ANDROID_DEBUG_KEYSTORE_BASE64" ] && [ -n "$ANDROID_DEBUG_KEYSTORE_PASSWORD" ]; then
+            printf '%s' "$ANDROID_DEBUG_KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE"
+            echo "Debug keystore restored from Actions secrets."
+          else
+            echo "Debug keystore secrets not set; generating a fresh debug keystore."
+            ANDROID_DEBUG_KEYSTORE_PASSWORD=android
+            keytool -genkeypair -v \
+              -keystore "$KEYSTORE" \
+              -storepass "$ANDROID_DEBUG_KEYSTORE_PASSWORD" \
+              -keypass "$ANDROID_DEBUG_KEYSTORE_PASSWORD" \
+              -alias monodash \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -dname "CN=Mono Dash Debug, OU=Debug, O=Mono Dash, L=Local, ST=Local, C=CN"
+          fi
 
           printf '%s\n' \
-            "storeFile=../keystore/mono-dash-release.jks" \
-            "storePassword=$ANDROID_KEYSTORE_PASSWORD" \
-            "keyAlias=$ANDROID_KEY_ALIAS" \
-            "keyPassword=$ANDROID_KEY_PASSWORD" \
-            > android/key.properties
+            "storeFile=../keystore/mono-dash-debug.jks" \
+            "storePassword=$ANDROID_DEBUG_KEYSTORE_PASSWORD" \
+            "keyAlias=monodash" \
+            "keyPassword=$ANDROID_DEBUG_KEYSTORE_PASSWORD" \
+            > "$KEY_PROPERTIES"
 
-          test -s android/keystore/mono-dash-release.jks
-          test -s android/key.properties
+          test -s "$KEYSTORE"
+          test -s "$KEY_PROPERTIES"
 
-          echo "Android signing key restored."
-          echo "SIGNED=true" >> "$GITHUB_ENV"
+          # Persist a freshly generated keystore so future builds keep the
+          # same signature (secrets are write-only via the API).
+          if [ -z "$ANDROID_DEBUG_KEYSTORE_BASE64" ]; then
+            base64 -w0 "$KEYSTORE" > /tmp/keystore.b64
+            KEYSTORE_B64=$(cat /tmp/keystore.b64)
+            # gh CLI is preinstalled on GitHub runners.
+            echo "$ANDROID_DEBUG_KEYSTORE_PASSWORD" | gh secret set ANDROID_DEBUG_KEYSTORE_PASSWORD --repo "$GH_REPO" --body "$ANDROID_DEBUG_KEYSTORE_PASSWORD"
+            gh secret set ANDROID_DEBUG_KEYSTORE_BASE64 --repo "$GH_REPO" --body "$KEYSTORE_B64"
+            echo "Fresh debug keystore saved to Actions secrets ANDROID_DEBUG_KEYSTORE_BASE64."
+          fi
 
       - name: Build APK
         run: flutter build apk --release --target-platform ${{ github.event.inputs.target_platform || 'android-arm64' }}
@@ -88,6 +102,6 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: mono-dash-${{ env.SIGNED == 'true' && 'signed' || 'debug-signed' }}-release-apk
+          name: mono-dash-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
