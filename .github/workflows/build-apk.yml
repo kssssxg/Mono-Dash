@@ -95,9 +95,12 @@ jobs:
             base64 -w0 "$KEYSTORE" > /tmp/keystore.b64
             KEYSTORE_B64=$(cat /tmp/keystore.b64)
             # gh CLI is preinstalled on GitHub runners.
-            echo "$ANDROID_DEBUG_KEYSTORE_PASSWORD" | gh secret set ANDROID_DEBUG_KEYSTORE_PASSWORD --repo "$GH_REPO" --body "$ANDROID_DEBUG_KEYSTORE_PASSWORD"
-            gh secret set ANDROID_DEBUG_KEYSTORE_BASE64 --repo "$GH_REPO" --body "$KEYSTORE_B64"
-            echo "Fresh debug keystore saved to Actions secrets ANDROID_DEBUG_KEYSTORE_BASE64."
+            if gh secret set ANDROID_DEBUG_KEYSTORE_PASSWORD --repo "$GH_REPO" --body "$ANDROID_DEBUG_KEYSTORE_PASSWORD" \
+              && gh secret set ANDROID_DEBUG_KEYSTORE_BASE64 --repo "$GH_REPO" --body "$KEYSTORE_B64"; then
+              echo "Fresh debug keystore saved to Actions secrets ANDROID_DEBUG_KEYSTORE_BASE64."
+            else
+              echo "Warning: failed to persist debug keystore to Actions secrets; continuing with this run's generated key."
+            fi
           fi
 
       - name: Build APK
