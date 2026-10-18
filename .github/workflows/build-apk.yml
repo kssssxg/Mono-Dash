@@ -18,6 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      # Required to write the generated debug keystore back to Actions secrets.
+      actions: write
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
