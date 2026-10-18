@@ -1671,33 +1671,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String purchases_serverLimitReached(int freeServerLimit, int serverCount) {
-    return '免费版最多添加 $freeServerLimit 个面板，当前已有 $serverCount 个';
-  }
-
-  @override
-  String get purchases_offlineUnlocked => '已使用本机购买凭证离线解锁';
-
-  @override
-  String get purchases_apiKeyMissing => '当前构建未配置 RevenueCat API Key';
-
-  @override
-  String get purchases_serviceUnavailableOfflineUnlocked =>
-      '购买服务暂不可用，已使用本机购买凭证离线解锁';
-
-  @override
-  String get purchases_serviceUnavailableNetwork => '购买服务暂不可用，请允许 App 使用网络后重试';
-
-  @override
-  String get purchases_noPackageAvailable => 'RevenueCat 当前 Offering 中没有可购买套餐';
-
-  @override
-  String get purchases_packageLoadFailed => '购买套餐暂时无法加载，请稍后再试';
-
-  @override
-  String get purchases_serviceNotInitialized => '购买服务尚未初始化';
-
-  @override
   String get log_hubTitle => '日志审计';
 
   @override
@@ -2013,98 +1986,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get servers_retry => '重试';
 
   @override
-  String get premium_heroSubtitle => '一次购买，永久解锁全部功能';
-
-  @override
-  String get premium_unlimitedTitle => '无限面板管理';
-
-  @override
-  String get premium_unlimitedDescription => '不再受 1 个面板的限制，添加任意数量的 1Panel 实例。';
-
-  @override
-  String premium_currentServerCount(int serverCount) {
-    return ' (您当前已添加 $serverCount 个面板)';
-  }
-
-  @override
-  String get premium_moreFeaturesTitle => '更多高级功能';
-
-  @override
-  String get premium_desktopWidgetsFeature => '桌面小组件';
-
-  @override
-  String get premium_desktopWidgetsFreeHint => '（已免费开放）';
-
-  @override
-  String get premium_moreFeaturesDescription => '、多端同步等更多高级功能正在开发中，敬请期待。';
-
-  @override
-  String get premium_testflightTitle => 'TestFlight 内测';
-
-  @override
-  String get premium_testflightDescription =>
-      '提前体验新功能。有 bug 或建议时，也可通过反馈留下联系方式，我们会发送 TestFlight 邀请。';
-
-  @override
-  String get premium_testflightApplyHint => ' 去申请';
-
-  @override
-  String get premium_supportTitle => '支持开源项目';
-
-  @override
-  String get premium_supportDescription =>
-      'Mono Dash 是托管在 GitHub 上的开源项目。您的支持会帮助项目持续维护和推进新功能。';
-
-  @override
-  String get premium_loading => '加载中...';
-
-  @override
-  String premium_unlockNow(String price) {
-    return '立即解锁 $price';
-  }
-
-  @override
-  String get premium_oneTime => '一次性付费，永久有效';
-
-  @override
-  String get premium_restore => '恢复购买';
-
-  @override
-  String get premium_unlockedTitle => '已解锁高级版';
-
-  @override
-  String premium_unlockedDescription(int serverCount) {
-    return '感谢您的支持！当前已添加 $serverCount 个面板。';
-  }
-
-  @override
-  String get premium_terms => '使用条款';
-
-  @override
-  String get premium_privacy => '隐私政策';
-
-  @override
-  String get premium_legalAgreement => '购买即表示您同意上述条款与政策。';
-
-  @override
-  String get premium_unlockedToast => '已解锁无限面板';
-
-  @override
-  String get premium_purchaseIncomplete => '购买未完成';
-
-  @override
-  String get premium_purchaseFailed => '购买失败';
-
-  @override
-  String get premium_restoredToast => '已恢复购买';
-
-  @override
-  String get premium_restoreNotFound => '未找到可恢复的购买';
-
-  @override
-  String get premium_restoreFailed => '恢复失败';
-
-  @override
   String get serverDetail_searchFilesPlaceholder => '搜索文件...';
 
   @override
@@ -2246,16 +2127,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settings_title => '设置';
 
   @override
-  String get settings_premium_title => '内购';
+  String get premium_heroSubtitle => '所有功能均已免费开放';
 
   @override
-  String get settings_premium_unlimitedTitle => 'Mono Dash Unlimited';
+  String get premium_unlockedTitle => '所有功能已解锁';
 
   @override
-  String get settings_premium_unlimitedUnlocked => '已解锁无限面板';
+  String get premium_unlockedDescription => '此前需要购买的功能现在全部免费开放。';
 
   @override
-  String get settings_premium_unlimitedLocked => '解锁无限面板及更多功能';
+  String get premium_terms => '使用条款';
+
+  @override
+  String get premium_privacy => '隐私政策';
 
   @override
   String get settings_appearance_title => '个性化';
@@ -3884,11 +3768,10 @@ class AppLocalizationsZh extends AppLocalizations {
       '在 1Panel 面板中进入「设置 → 面板设置 → API」，开启 API 并生成 API Key 后填入添加面板表单。';
 
   @override
-  String get settings_help_privacyTitle => '隐私与购买说明';
+  String get settings_help_privacyTitle => '隐私说明';
 
   @override
-  String get settings_help_privacyContent =>
-      '面板连接信息保存在本机，API Key 使用系统安全存储。购买由 App Store 或 Google Play 处理，RevenueCat 只用于同步购买状态。';
+  String get settings_help_privacyContent => '面板连接信息保存在本机，API Key 使用系统安全存储。';
 
   @override
   String get settings_help_openSourceTitle => '查看源码';
@@ -4037,7 +3920,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settings_cache_confirmContent =>
-      '将删除：本机临时缓存文件。\n\n不会删除：面板配置、API Key、下载文件或购买状态。';
+      '将删除：本机临时缓存文件。\n\n不会删除：面板配置、API Key 或下载文件。';
 
   @override
   String get settings_cache_clearAction => '清理';
@@ -6403,9 +6286,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get websites_noReplaceRules => '暂无替换规则';
 
   @override
-  String get websites_notSet => '未设置';
-
-  @override
   String get websites_neverExpires => '永不过期';
 
   @override
@@ -6783,6 +6663,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get websites_directorySubtitle => '运行目录、权限与目录结构';
 
   @override
+  String get websites_notSet => '未设置';
+
+  @override
   String get websites_rootDirectory => '根目录';
 
   @override
@@ -6989,9 +6872,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get websites_defaultGroupSet => '已设为默认分组';
-
-  @override
-  String get websites_operationFailed => '操作失败';
 
   @override
   String get websites_deleteGroup => '删除分组';
@@ -8297,6 +8177,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get websites_authFieldsRequired => '请填写所有授权字段';
+
+  @override
+  String get websites_operationFailed => '操作失败';
 
   @override
   String get websites_editDnsAccount => '编辑 DNS 账号';
@@ -11672,43 +11555,4 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get supervisor_restart => '重启';
-
-  @override
-  String get testflight_title => '申请 TestFlight';
-
-  @override
-  String get testflight_description => '填写接收邀请的邮箱，提交后不可修改。';
-
-  @override
-  String get testflight_emailLabel => 'TestFlight 邮箱';
-
-  @override
-  String get testflight_submit => '提交申请';
-
-  @override
-  String get testflight_openApplication => '申请 TestFlight 测试资格';
-
-  @override
-  String get testflight_invalidEmail => '请输入有效的邮箱地址';
-
-  @override
-  String get testflight_resultTitle => '申请结果';
-
-  @override
-  String get testflight_invited => '邀请已发送，请检查邮箱（含垃圾邮件）。';
-
-  @override
-  String get testflight_pending => '申请已提交，请稍后查收邮件。';
-
-  @override
-  String get testflight_notEligible => '暂时无法申请，请稍后重试，或通过反馈留下联系方式。';
-
-  @override
-  String get testflight_alreadyApplied => '该邮箱已经申请过。';
-
-  @override
-  String get testflight_notConfigured => '当前构建未配置 TestFlight 申请服务。';
-
-  @override
-  String get testflight_serviceUnavailable => '申请服务暂时不可用，请稍后重试。';
 }

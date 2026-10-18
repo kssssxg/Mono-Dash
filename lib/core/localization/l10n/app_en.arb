@@ -2375,46 +2375,6 @@
       }
     }
   },
-  "purchases_serverLimitReached": "The free version can add up to {freeServerLimit} panel(s). You already have {serverCount}.",
-  "@purchases_serverLimitReached": {
-    "description": "Error shown when the user reaches the free server limit.",
-    "placeholders": {
-      "freeServerLimit": {
-        "type": "int"
-      },
-      "serverCount": {
-        "type": "int"
-      }
-    }
-  },
-  "purchases_offlineUnlocked": "Unlocked offline using this device's purchase receipt",
-  "@purchases_offlineUnlocked": {
-    "description": "Purchase state message when local receipt unlocks the app offline."
-  },
-  "purchases_apiKeyMissing": "RevenueCat API Key is not configured for this build",
-  "@purchases_apiKeyMissing": {
-    "description": "Purchase state message when the build has no RevenueCat API key."
-  },
-  "purchases_serviceUnavailableOfflineUnlocked": "Purchase service is temporarily unavailable. Unlocked offline using this device's purchase receipt.",
-  "@purchases_serviceUnavailableOfflineUnlocked": {
-    "description": "Purchase state message when purchase service is unavailable but local receipt unlocks the app."
-  },
-  "purchases_serviceUnavailableNetwork": "Purchase service is temporarily unavailable. Allow this app to use the network, then try again.",
-  "@purchases_serviceUnavailableNetwork": {
-    "description": "Purchase state message when purchase service is unavailable."
-  },
-  "purchases_noPackageAvailable": "No purchasable package is available in the current RevenueCat Offering",
-  "@purchases_noPackageAvailable": {
-    "description": "Error shown when RevenueCat has no package in the current offering."
-  },
-  "purchases_packageLoadFailed": "Purchase packages cannot be loaded right now. Please try again later.",
-  "@purchases_packageLoadFailed": {
-    "description": "Purchase state message when package loading fails."
-  },
-  "purchases_serviceNotInitialized": "Purchase service has not been initialized",
-  "@purchases_serviceNotInitialized": {
-    "description": "Error shown when purchase service is used before initialization."
-  },
   "log_hubTitle": "Log Audit",
   "@log_hubTitle": {
     "description": "Log hub page title."
@@ -2843,133 +2803,6 @@
   "@servers_retry": {
     "description": "Retry action label."
   },
-  "premium_heroSubtitle": "One purchase, lifetime access to all features",
-  "@premium_heroSubtitle": {
-    "description": "Premium purchase hero subtitle."
-  },
-  "premium_unlimitedTitle": "Unlimited Panel Management",
-  "@premium_unlimitedTitle": {
-    "description": "Premium benefit title for unlimited panels."
-  },
-  "premium_unlimitedDescription": "Remove the 1-panel limit and add any number of 1Panel instances.",
-  "@premium_unlimitedDescription": {
-    "description": "Premium benefit description for unlimited panels."
-  },
-  "premium_currentServerCount": " (you currently have {serverCount} panels)",
-  "@premium_currentServerCount": {
-    "description": "Premium limit prompt hint with current server count.",
-    "placeholders": {
-      "serverCount": {
-        "type": "int"
-      }
-    }
-  },
-  "premium_moreFeaturesTitle": "More Advanced Features",
-  "@premium_moreFeaturesTitle": {
-    "description": "Premium benefit title for future features."
-  },
-  "premium_desktopWidgetsFeature": "Desktop widgets",
-  "@premium_desktopWidgetsFeature": {
-    "description": "Premium benefit text for desktop widgets."
-  },
-  "premium_desktopWidgetsFreeHint": " (now free)",
-  "@premium_desktopWidgetsFreeHint": {
-    "description": "Premium benefit highlighted hint that desktop widgets are free for all users."
-  },
-  "premium_moreFeaturesDescription": ", multi-device sync, and more advanced features are in development.",
-  "@premium_moreFeaturesDescription": {
-    "description": "Premium benefit description suffix for future features."
-  },
-  "premium_testflightTitle": "TestFlight Beta",
-  "@premium_testflightTitle": {
-    "description": "Premium benefit title for TestFlight early access."
-  },
-  "premium_testflightDescription": "Try new features early. You can also leave your contact via in-app feedback — we'll send a TestFlight invite.",
-  "@premium_testflightDescription": {
-    "description": "Premium benefit description for TestFlight early access, including the feedback path."
-  },
-  "premium_testflightApplyHint": " Apply",
-  "@premium_testflightApplyHint": {
-    "description": "Hint shown on the TestFlight benefit when the user can open the application sheet."
-  },
-  "premium_supportTitle": "Support Open Source",
-  "@premium_supportTitle": {
-    "description": "Premium benefit title for supporting the open source project."
-  },
-  "premium_supportDescription": "Mono Dash is open source on GitHub. Your support helps keep the project maintained and new features moving forward.",
-  "@premium_supportDescription": {
-    "description": "Premium benefit description for supporting the open source project."
-  },
-  "premium_loading": "Loading...",
-  "@premium_loading": {
-    "description": "Premium purchase price loading fallback."
-  },
-  "premium_unlockNow": "Unlock Now {price}",
-  "@premium_unlockNow": {
-    "description": "Premium purchase button label.",
-    "placeholders": {
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "premium_oneTime": "One-time payment, lifetime access",
-  "@premium_oneTime": {
-    "description": "Premium purchase payment note."
-  },
-  "premium_restore": "Restore Purchases",
-  "@premium_restore": {
-    "description": "Premium restore purchases button label."
-  },
-  "premium_unlockedTitle": "Premium Unlocked",
-  "@premium_unlockedTitle": {
-    "description": "Premium unlocked status title."
-  },
-  "premium_unlockedDescription": "Thanks for your support. You currently have {serverCount} panels.",
-  "@premium_unlockedDescription": {
-    "description": "Premium unlocked status description.",
-    "placeholders": {
-      "serverCount": {
-        "type": "int"
-      }
-    }
-  },
-  "premium_terms": "Terms of Use",
-  "@premium_terms": {
-    "description": "Premium terms link label."
-  },
-  "premium_privacy": "Privacy Policy",
-  "@premium_privacy": {
-    "description": "Premium privacy policy link label."
-  },
-  "premium_legalAgreement": "By purchasing, you agree to the terms and privacy policy above.",
-  "@premium_legalAgreement": {
-    "description": "Premium legal agreement text."
-  },
-  "premium_unlockedToast": "Unlimited panels unlocked",
-  "@premium_unlockedToast": {
-    "description": "Toast shown after a successful premium purchase."
-  },
-  "premium_purchaseIncomplete": "Purchase was not completed",
-  "@premium_purchaseIncomplete": {
-    "description": "Toast shown when premium purchase does not unlock."
-  },
-  "premium_purchaseFailed": "Purchase failed",
-  "@premium_purchaseFailed": {
-    "description": "Toast title when premium purchase fails."
-  },
-  "premium_restoredToast": "Purchases restored",
-  "@premium_restoredToast": {
-    "description": "Toast shown after purchases are restored."
-  },
-  "premium_restoreNotFound": "No restorable purchase found",
-  "@premium_restoreNotFound": {
-    "description": "Toast shown when restore finds no premium purchase."
-  },
-  "premium_restoreFailed": "Restore failed",
-  "@premium_restoreFailed": {
-    "description": "Toast title when purchase restore fails."
-  },
   "serverDetail_searchFilesPlaceholder": "Search files...",
   "@serverDetail_searchFilesPlaceholder": {
     "description": "Server detail file search placeholder."
@@ -3162,24 +2995,28 @@
     "description": "Image menu prune images action."
   },
   "settings_title": "Settings",
+  "premium_heroSubtitle": "All features are free and fully unlocked",
+  "@premium_heroSubtitle": {
+    "description": "Subtitle on the (former paywall) premium page."
+  },
+  "premium_unlockedTitle": "All features unlocked",
+  "@premium_unlockedTitle": {
+    "description": "Title of the unlocked status card."
+  },
+  "premium_unlockedDescription": "Everything previously gated behind a purchase is now free.",
+  "@premium_unlockedDescription": {
+    "description": "Description of the unlocked status card."
+  },
+  "premium_terms": "Terms of Use",
+  "@premium_terms": {
+    "description": "Footer link label for the terms of use."
+  },
+  "premium_privacy": "Privacy Policy",
+  "@premium_privacy": {
+    "description": "Footer link label for the privacy policy."
+  },
   "@settings_title": {
     "description": "Settings page title."
-  },
-  "settings_premium_title": "Purchases",
-  "@settings_premium_title": {
-    "description": "Settings section title for purchases."
-  },
-  "settings_premium_unlimitedTitle": "Mono Dash Unlimited",
-  "@settings_premium_unlimitedTitle": {
-    "description": "Title for the unlimited purchase entry."
-  },
-  "settings_premium_unlimitedUnlocked": "Unlimited panels unlocked",
-  "@settings_premium_unlimitedUnlocked": {
-    "description": "Subtitle shown when unlimited panels are unlocked."
-  },
-  "settings_premium_unlimitedLocked": "Unlock unlimited panels and more features",
-  "@settings_premium_unlimitedLocked": {
-    "description": "Subtitle shown when unlimited panels are locked."
   },
   "settings_appearance_title": "Appearance",
   "@settings_appearance_title": {
@@ -5454,11 +5291,11 @@
   "@settings_help_apiKeyContent": {
     "description": "Help dialog content explaining where to find an API key."
   },
-  "settings_help_privacyTitle": "Privacy & Purchases",
+  "settings_help_privacyTitle": "Privacy",
   "@settings_help_privacyTitle": {
     "description": "Help entry title for privacy and purchase information."
   },
-  "settings_help_privacyContent": "Panel connection information is stored on this device. API Keys use secure system storage. Purchases are processed by the App Store or Google Play, and RevenueCat is only used to sync purchase status.",
+  "settings_help_privacyContent": "Panel connection information is stored on this device. API Keys use secure system storage.",
   "@settings_help_privacyContent": {
     "description": "Help dialog content explaining privacy and purchases."
   },
@@ -5940,29 +5777,53 @@
     "description": "Firewall rule protected from changes."
   },
   "firewall_adoptRule": "Adopt Rule",
-  "@firewall_adoptRule": {"description": "Adopt an external firewall rule into 1Panel management."},
+  "@firewall_adoptRule": {
+    "description": "Adopt an external firewall rule into 1Panel management."
+  },
   "firewall_adoptRuleHint": "Edit or delete this rule in the app after adoption",
-  "@firewall_adoptRuleHint": {"description": "Explanation of rule adoption."},
+  "@firewall_adoptRuleHint": {
+    "description": "Explanation of rule adoption."
+  },
   "firewall_adoptRuleConfirm": "Let 1Panel manage this external rule on the server?",
-  "@firewall_adoptRuleConfirm": {"description": "Confirmation before adopting an external firewall rule."},
+  "@firewall_adoptRuleConfirm": {
+    "description": "Confirmation before adopting an external firewall rule."
+  },
   "firewall_readOnlyRule": "This rule is read-only",
-  "@firewall_readOnlyRule": {"description": "Label for an uneditable firewall rule."},
+  "@firewall_readOnlyRule": {
+    "description": "Label for an uneditable firewall rule."
+  },
   "firewall_readOnlyRuleHint": "Protected or unsupported rules cannot be changed in the app",
-  "@firewall_readOnlyRuleHint": {"description": "Why a firewall rule cannot be changed."},
+  "@firewall_readOnlyRuleHint": {
+    "description": "Why a firewall rule cannot be changed."
+  },
   "firewall_noticeFamilyUnavailable": "Some IP versions are unavailable on this server.",
-  "@firewall_noticeFamilyUnavailable": {"description": "Firewall inventory notice for an unavailable IP family."},
+  "@firewall_noticeFamilyUnavailable": {
+    "description": "Firewall inventory notice for an unavailable IP family."
+  },
   "firewall_noticeDefaultScopeMismatch": "The active rule scope differs from the default scope.",
-  "@firewall_noticeDefaultScopeMismatch": {"description": "Firewall inventory notice for scope mismatch."},
+  "@firewall_noticeDefaultScopeMismatch": {
+    "description": "Firewall inventory notice for scope mismatch."
+  },
   "firewall_noticeManagedScopeInactive": "Some managed rule scopes are inactive.",
-  "@firewall_noticeManagedScopeInactive": {"description": "Firewall inventory notice for inactive managed scopes."},
+  "@firewall_noticeManagedScopeInactive": {
+    "description": "Firewall inventory notice for inactive managed scopes."
+  },
   "firewall_noticeUnmanagedScopes": "Active rules exist outside the managed scope.",
-  "@firewall_noticeUnmanagedScopes": {"description": "Firewall inventory notice for unmanaged active scopes."},
+  "@firewall_noticeUnmanagedScopes": {
+    "description": "Firewall inventory notice for unmanaged active scopes."
+  },
   "firewall_noticeRuntimeMismatch": "Running and saved firewall rules differ.",
-  "@firewall_noticeRuntimeMismatch": {"description": "Firewall inventory notice for runtime and permanent rule mismatch."},
+  "@firewall_noticeRuntimeMismatch": {
+    "description": "Firewall inventory notice for runtime and permanent rule mismatch."
+  },
   "firewall_noticeDefaultPolicy": "The default firewall policy may affect these rules.",
-  "@firewall_noticeDefaultPolicy": {"description": "Firewall inventory notice about the default policy."},
+  "@firewall_noticeDefaultPolicy": {
+    "description": "Firewall inventory notice about the default policy."
+  },
   "firewall_noticeManagedScopeMissing": "A managed rule scope is missing.",
-  "@firewall_noticeManagedScopeMissing": {"description": "Firewall inventory notice for a missing managed scope."},
+  "@firewall_noticeManagedScopeMissing": {
+    "description": "Firewall inventory notice for a missing managed scope."
+  },
   "panelSettings_enabled": "Enabled",
   "@panelSettings_enabled": {
     "description": "Enabled status label."
@@ -8466,8 +8327,7 @@
   "@appStore_dockerComposeContent": {
     "description": "Docker compose content section title."
   },
-  "appStore_upgradeNow": "Upgrade Now"
-  ,
+  "appStore_upgradeNow": "Upgrade Now",
   "@appStore_upgradeNow": {
     "description": "Upgrade now button label."
   },
@@ -8934,10 +8794,6 @@
   "websites_noReplaceRules": "No replacement rules",
   "@websites_noReplaceRules": {
     "description": "Reverse proxy editor empty replacement rules hint."
-  },
-  "websites_notSet": "Not set",
-  "@websites_notSet": {
-    "description": "Website list unset fallback label."
   },
   "websites_neverExpires": "Never expires",
   "@websites_neverExpires": {
@@ -9756,10 +9612,6 @@
   "websites_defaultGroupSet": "Set as default group",
   "@websites_defaultGroupSet": {
     "description": "Website group set default success toast."
-  },
-  "websites_operationFailed": "Operation failed",
-  "@websites_operationFailed": {
-    "description": "Generic website operation failure toast."
   },
   "websites_deleteGroup": "Delete Group",
   "@websites_deleteGroup": {
@@ -14272,7 +14124,11 @@
   "databases_managerNotInstalled": "{name} is not installed",
   "@databases_managerNotInstalled": {
     "description": "Database web manager missing dialog title.",
-    "placeholders": {"name": {"type": "String"}}
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "databases_managerInstallPrompt": "Install this database management tool from the App Store first.",
   "@databases_managerInstallPrompt": {
@@ -14289,7 +14145,11 @@
   "databases_openManagerFailed": "Unable to open {name}",
   "@databases_openManagerFailed": {
     "description": "Database web manager browser launch failure.",
-    "placeholders": {"name": {"type": "String"}}
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "databases_webPageLoadFailed": "Failed to load the web page",
   "@databases_webPageLoadFailed": {
@@ -16199,31 +16059,5 @@
   "supervisor_restart": "Restart",
   "@supervisor_restart": {
     "description": "Supervisor restart operation label."
-  },
-  "testflight_title": "Apply for TestFlight",
-  "@testflight_title": {"description": "TestFlight application sheet title."},
-  "testflight_description": "Enter the email for your invitation. It can't be changed later.",
-  "@testflight_description": {"description": "TestFlight application policy explanation."},
-  "testflight_emailLabel": "TestFlight email",
-  "@testflight_emailLabel": {"description": "TestFlight invitation email field label."},
-  "testflight_submit": "Submit",
-  "@testflight_submit": {"description": "TestFlight application submit button."},
-  "testflight_openApplication": "Apply for TestFlight access",
-  "@testflight_openApplication": {"description": "Legacy label for opening the TestFlight application sheet."},
-  "testflight_invalidEmail": "Enter a valid email address",
-  "@testflight_invalidEmail": {"description": "Invalid TestFlight email validation message."},
-  "testflight_resultTitle": "Application result",
-  "@testflight_resultTitle": {"description": "TestFlight application result dialog title."},
-  "testflight_invited": "Invitation sent. Check your inbox and spam folder.",
-  "@testflight_invited": {"description": "Successful TestFlight invitation message."},
-  "testflight_pending": "Application submitted. Check your email shortly.",
-  "@testflight_pending": {"description": "Pending TestFlight application message."},
-  "testflight_notEligible": "Can't apply right now. Try again later, or leave your contact via feedback.",
-  "@testflight_notEligible": {"description": "TestFlight eligibility failure message."},
-  "testflight_alreadyApplied": "This email has already been used.",
-  "@testflight_alreadyApplied": {"description": "Duplicate TestFlight application message."},
-  "testflight_notConfigured": "This build does not configure the TestFlight application service.",
-  "@testflight_notConfigured": {"description": "Missing TestFlight service build configuration message."},
-  "testflight_serviceUnavailable": "The application service is temporarily unavailable. Try again later.",
-  "@testflight_serviceUnavailable": {"description": "Temporary TestFlight service error message."}
+  }
 }

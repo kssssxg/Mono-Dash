@@ -3176,54 +3176,6 @@ abstract class AppLocalizations {
   /// **'Filesystem {value}'**
   String disk_filesystem(String value);
 
-  /// Error shown when the user reaches the free server limit.
-  ///
-  /// In en, this message translates to:
-  /// **'The free version can add up to {freeServerLimit} panel(s). You already have {serverCount}.'**
-  String purchases_serverLimitReached(int freeServerLimit, int serverCount);
-
-  /// Purchase state message when local receipt unlocks the app offline.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlocked offline using this device\'s purchase receipt'**
-  String get purchases_offlineUnlocked;
-
-  /// Purchase state message when the build has no RevenueCat API key.
-  ///
-  /// In en, this message translates to:
-  /// **'RevenueCat API Key is not configured for this build'**
-  String get purchases_apiKeyMissing;
-
-  /// Purchase state message when purchase service is unavailable but local receipt unlocks the app.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchase service is temporarily unavailable. Unlocked offline using this device\'s purchase receipt.'**
-  String get purchases_serviceUnavailableOfflineUnlocked;
-
-  /// Purchase state message when purchase service is unavailable.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchase service is temporarily unavailable. Allow this app to use the network, then try again.'**
-  String get purchases_serviceUnavailableNetwork;
-
-  /// Error shown when RevenueCat has no package in the current offering.
-  ///
-  /// In en, this message translates to:
-  /// **'No purchasable package is available in the current RevenueCat Offering'**
-  String get purchases_noPackageAvailable;
-
-  /// Purchase state message when package loading fails.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchase packages cannot be loaded right now. Please try again later.'**
-  String get purchases_packageLoadFailed;
-
-  /// Error shown when purchase service is used before initialization.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchase service has not been initialized'**
-  String get purchases_serviceNotInitialized;
-
   /// Log hub page title.
   ///
   /// In en, this message translates to:
@@ -3836,174 +3788,6 @@ abstract class AppLocalizations {
   /// **'Retry'**
   String get servers_retry;
 
-  /// Premium purchase hero subtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'One purchase, lifetime access to all features'**
-  String get premium_heroSubtitle;
-
-  /// Premium benefit title for unlimited panels.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlimited Panel Management'**
-  String get premium_unlimitedTitle;
-
-  /// Premium benefit description for unlimited panels.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove the 1-panel limit and add any number of 1Panel instances.'**
-  String get premium_unlimitedDescription;
-
-  /// Premium limit prompt hint with current server count.
-  ///
-  /// In en, this message translates to:
-  /// **' (you currently have {serverCount} panels)'**
-  String premium_currentServerCount(int serverCount);
-
-  /// Premium benefit title for future features.
-  ///
-  /// In en, this message translates to:
-  /// **'More Advanced Features'**
-  String get premium_moreFeaturesTitle;
-
-  /// Premium benefit text for desktop widgets.
-  ///
-  /// In en, this message translates to:
-  /// **'Desktop widgets'**
-  String get premium_desktopWidgetsFeature;
-
-  /// Premium benefit highlighted hint that desktop widgets are free for all users.
-  ///
-  /// In en, this message translates to:
-  /// **' (now free)'**
-  String get premium_desktopWidgetsFreeHint;
-
-  /// Premium benefit description suffix for future features.
-  ///
-  /// In en, this message translates to:
-  /// **', multi-device sync, and more advanced features are in development.'**
-  String get premium_moreFeaturesDescription;
-
-  /// Premium benefit title for TestFlight early access.
-  ///
-  /// In en, this message translates to:
-  /// **'TestFlight Beta'**
-  String get premium_testflightTitle;
-
-  /// Premium benefit description for TestFlight early access, including the feedback path.
-  ///
-  /// In en, this message translates to:
-  /// **'Try new features early. You can also leave your contact via in-app feedback — we\'ll send a TestFlight invite.'**
-  String get premium_testflightDescription;
-
-  /// Hint shown on the TestFlight benefit when the user can open the application sheet.
-  ///
-  /// In en, this message translates to:
-  /// **' Apply'**
-  String get premium_testflightApplyHint;
-
-  /// Premium benefit title for supporting the open source project.
-  ///
-  /// In en, this message translates to:
-  /// **'Support Open Source'**
-  String get premium_supportTitle;
-
-  /// Premium benefit description for supporting the open source project.
-  ///
-  /// In en, this message translates to:
-  /// **'Mono Dash is open source on GitHub. Your support helps keep the project maintained and new features moving forward.'**
-  String get premium_supportDescription;
-
-  /// Premium purchase price loading fallback.
-  ///
-  /// In en, this message translates to:
-  /// **'Loading...'**
-  String get premium_loading;
-
-  /// Premium purchase button label.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock Now {price}'**
-  String premium_unlockNow(String price);
-
-  /// Premium purchase payment note.
-  ///
-  /// In en, this message translates to:
-  /// **'One-time payment, lifetime access'**
-  String get premium_oneTime;
-
-  /// Premium restore purchases button label.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore Purchases'**
-  String get premium_restore;
-
-  /// Premium unlocked status title.
-  ///
-  /// In en, this message translates to:
-  /// **'Premium Unlocked'**
-  String get premium_unlockedTitle;
-
-  /// Premium unlocked status description.
-  ///
-  /// In en, this message translates to:
-  /// **'Thanks for your support. You currently have {serverCount} panels.'**
-  String premium_unlockedDescription(int serverCount);
-
-  /// Premium terms link label.
-  ///
-  /// In en, this message translates to:
-  /// **'Terms of Use'**
-  String get premium_terms;
-
-  /// Premium privacy policy link label.
-  ///
-  /// In en, this message translates to:
-  /// **'Privacy Policy'**
-  String get premium_privacy;
-
-  /// Premium legal agreement text.
-  ///
-  /// In en, this message translates to:
-  /// **'By purchasing, you agree to the terms and privacy policy above.'**
-  String get premium_legalAgreement;
-
-  /// Toast shown after a successful premium purchase.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlimited panels unlocked'**
-  String get premium_unlockedToast;
-
-  /// Toast shown when premium purchase does not unlock.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchase was not completed'**
-  String get premium_purchaseIncomplete;
-
-  /// Toast title when premium purchase fails.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchase failed'**
-  String get premium_purchaseFailed;
-
-  /// Toast shown after purchases are restored.
-  ///
-  /// In en, this message translates to:
-  /// **'Purchases restored'**
-  String get premium_restoredToast;
-
-  /// Toast shown when restore finds no premium purchase.
-  ///
-  /// In en, this message translates to:
-  /// **'No restorable purchase found'**
-  String get premium_restoreNotFound;
-
-  /// Toast title when purchase restore fails.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore failed'**
-  String get premium_restoreFailed;
-
   /// Server detail file search placeholder.
   ///
   /// In en, this message translates to:
@@ -4274,29 +4058,35 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings_title;
 
-  /// Settings section title for purchases.
+  /// Subtitle on the (former paywall) premium page.
   ///
   /// In en, this message translates to:
-  /// **'Purchases'**
-  String get settings_premium_title;
+  /// **'All features are free and fully unlocked'**
+  String get premium_heroSubtitle;
 
-  /// Title for the unlimited purchase entry.
+  /// Title of the unlocked status card.
   ///
   /// In en, this message translates to:
-  /// **'Mono Dash Unlimited'**
-  String get settings_premium_unlimitedTitle;
+  /// **'All features unlocked'**
+  String get premium_unlockedTitle;
 
-  /// Subtitle shown when unlimited panels are unlocked.
+  /// Description of the unlocked status card.
   ///
   /// In en, this message translates to:
-  /// **'Unlimited panels unlocked'**
-  String get settings_premium_unlimitedUnlocked;
+  /// **'Everything previously gated behind a purchase is now free.'**
+  String get premium_unlockedDescription;
 
-  /// Subtitle shown when unlimited panels are locked.
+  /// Footer link label for the terms of use.
   ///
   /// In en, this message translates to:
-  /// **'Unlock unlimited panels and more features'**
-  String get settings_premium_unlimitedLocked;
+  /// **'Terms of Use'**
+  String get premium_terms;
+
+  /// Footer link label for the privacy policy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get premium_privacy;
 
   /// Settings section title for appearance options.
   ///
@@ -7349,13 +7139,13 @@ abstract class AppLocalizations {
   /// Help entry title for privacy and purchase information.
   ///
   /// In en, this message translates to:
-  /// **'Privacy & Purchases'**
+  /// **'Privacy'**
   String get settings_help_privacyTitle;
 
   /// Help dialog content explaining privacy and purchases.
   ///
   /// In en, this message translates to:
-  /// **'Panel connection information is stored on this device. API Keys use secure system storage. Purchases are processed by the App Store or Google Play, and RevenueCat is only used to sync purchase status.'**
+  /// **'Panel connection information is stored on this device. API Keys use secure system storage.'**
   String get settings_help_privacyContent;
 
   /// Settings row title for the Mono Dash source repository.
@@ -12080,12 +11870,6 @@ abstract class AppLocalizations {
   /// **'No replacement rules'**
   String get websites_noReplaceRules;
 
-  /// Generic not set label in website sheets.
-  ///
-  /// In en, this message translates to:
-  /// **'Not set'**
-  String get websites_notSet;
-
   /// Website list never expires label.
   ///
   /// In en, this message translates to:
@@ -12788,6 +12572,12 @@ abstract class AppLocalizations {
   /// **'Runtime directory, permissions, and directory structure'**
   String get websites_directorySubtitle;
 
+  /// Generic not set label in website sheets.
+  ///
+  /// In en, this message translates to:
+  /// **'Not set'**
+  String get websites_notSet;
+
   /// Website directory sheet root directory row title.
   ///
   /// In en, this message translates to:
@@ -13188,12 +12978,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set as default group'**
   String get websites_defaultGroupSet;
-
-  /// DNS account form operation failure toast.
-  ///
-  /// In en, this message translates to:
-  /// **'Operation failed'**
-  String get websites_operationFailed;
 
   /// Website group delete confirmation title.
   ///
@@ -15696,6 +15480,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fill in all authorization fields'**
   String get websites_authFieldsRequired;
+
+  /// DNS account form operation failure toast.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation failed'**
+  String get websites_operationFailed;
 
   /// DNS account edit form title.
   ///
@@ -22140,84 +21930,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Restart'**
   String get supervisor_restart;
-
-  /// TestFlight application sheet title.
-  ///
-  /// In en, this message translates to:
-  /// **'Apply for TestFlight'**
-  String get testflight_title;
-
-  /// TestFlight application policy explanation.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter the email for your invitation. It can\'t be changed later.'**
-  String get testflight_description;
-
-  /// TestFlight invitation email field label.
-  ///
-  /// In en, this message translates to:
-  /// **'TestFlight email'**
-  String get testflight_emailLabel;
-
-  /// TestFlight application submit button.
-  ///
-  /// In en, this message translates to:
-  /// **'Submit'**
-  String get testflight_submit;
-
-  /// Legacy label for opening the TestFlight application sheet.
-  ///
-  /// In en, this message translates to:
-  /// **'Apply for TestFlight access'**
-  String get testflight_openApplication;
-
-  /// Invalid TestFlight email validation message.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter a valid email address'**
-  String get testflight_invalidEmail;
-
-  /// TestFlight application result dialog title.
-  ///
-  /// In en, this message translates to:
-  /// **'Application result'**
-  String get testflight_resultTitle;
-
-  /// Successful TestFlight invitation message.
-  ///
-  /// In en, this message translates to:
-  /// **'Invitation sent. Check your inbox and spam folder.'**
-  String get testflight_invited;
-
-  /// Pending TestFlight application message.
-  ///
-  /// In en, this message translates to:
-  /// **'Application submitted. Check your email shortly.'**
-  String get testflight_pending;
-
-  /// TestFlight eligibility failure message.
-  ///
-  /// In en, this message translates to:
-  /// **'Can\'t apply right now. Try again later, or leave your contact via feedback.'**
-  String get testflight_notEligible;
-
-  /// Duplicate TestFlight application message.
-  ///
-  /// In en, this message translates to:
-  /// **'This email has already been used.'**
-  String get testflight_alreadyApplied;
-
-  /// Missing TestFlight service build configuration message.
-  ///
-  /// In en, this message translates to:
-  /// **'This build does not configure the TestFlight application service.'**
-  String get testflight_notConfigured;
-
-  /// Temporary TestFlight service error message.
-  ///
-  /// In en, this message translates to:
-  /// **'The application service is temporarily unavailable. Try again later.'**
-  String get testflight_serviceUnavailable;
 }
 
 class _AppLocalizationsDelegate

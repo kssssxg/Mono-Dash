@@ -1,0 +1,93 @@
+name: Build Mono Dash APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_platform:
+        description: 'Target platform(s) for the APK'
+        required: false
+        default: 'android-arm64'
+        type: choice
+        options:
+          - android-arm64
+          - android-arm
+          - android-x64
+          - android-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.44.8'
+          cache: true
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      # In-app purchases have been removed from this build, so there is no
+      # RevenueCat / purchase gate to configure. The signing key below is kept
+      # in this fork's Actions secrets (ANDROID_KEYSTORE_BASE64,
+      # ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD).
+      - name: Restore Android signing key
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          set -eu
+
+          if [ -z "$ANDROID_KEYSTORE_BASE64" ]; then
+            echo "ANDROID_KEYSTORE_BASE64 not set; building an unsigned debug-key APK."
+            echo "SIGNED=false" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          test -n "$ANDROID_KEYSTORE_PASSWORD"
+          test -n "$ANDROID_KEY_ALIAS"
+          test -n "$ANDROID_KEY_PASSWORD"
+
+          mkdir -p android/keystore
+
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" \
+            | base64 --decode \
+            > android/keystore/mono-dash-release.jks
+
+          printf '%s\n' \
+            "storeFile=../keystore/mono-dash-release.jks" \
+            "storePassword=$ANDROID_KEYSTORE_PASSWORD" \
+            "keyAlias=$ANDROID_KEY_ALIAS" \
+            "keyPassword=$ANDROID_KEY_PASSWORD" \
+            > android/key.properties
+
+          test -s android/keystore/mono-dash-release.jks
+          test -s android/key.properties
+
+          echo "Android signing key restored."
+          echo "SIGNED=true" >> "$GITHUB_ENV"
+
+      - name: Build APK
+        run: flutter build apk --release --target-platform ${{ github.event.inputs.target_platform || 'android-arm64' }}
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: mono-dash-${{ env.SIGNED == 'true' && 'signed' || 'debug-signed' }}-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30

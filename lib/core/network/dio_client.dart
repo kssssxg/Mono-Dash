@@ -230,6 +230,7 @@ class DioClient {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
+      case DioExceptionType.transformTimeout:
         return NetworkConnectionException('网络连接失败: $msg');
       case DioExceptionType.badCertificate:
         return NetworkConnectionException(
